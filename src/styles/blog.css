@@ -1,0 +1,5 @@
+a.category,
+a:visited.category {
+    color:var(--category-color);
+    font-weight: bold;
+}

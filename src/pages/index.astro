@@ -1,0 +1,80 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+
+const posts = (await getCollection("apuntes")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+
+const latestPosts = posts.slice(0, 5);
+
+const categories = [...new Set(posts.flatMap((post) => post.data.categories))];
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section>
+        Ultimos posts
+        <ul>
+          {
+            latestPosts.map((post) => (
+              <li>
+                <FormattedDate date={post.data.pubDate} />
+                <a href={`/apuntes/${post.slug}/`}>{post.data.title}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+      <h2>Categorias</h2>
+      {
+        categories.map((category) => (
+          <section>
+            {category}
+            <ul>
+              {posts
+                .filter((post) => post.data.categories.includes(category))
+                .map((post) => (
+                  <li>
+                    <FormattedDate date={post.data.pubDate} />
+                    <a href={`/apuntes/${post.slug}/`}>{post.data.title}</a>
+                  </li>
+                ))}
+            </ul>
+          </section>
+        ))
+      }
+    </main>
+    <Footer />
+  </body>
+  <style>
+    ul {
+      list-style-type: none;
+      padding: unset;
+
+	  display: grid;
+	  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	  grid-gap: 0.1em;
+
+    }
+    ul li {
+      display: flex;
+    }
+    ul li :global(time) {
+      flex: 0 0 130px;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+  </style>
+</html>

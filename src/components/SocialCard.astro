@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+const { href, socialName } = Astro.props;
+---
+
+<a href={href} target="_blank">
+    <h2><slot />{socialName} </h2>
+</a>
+
+<style>
+    a{
+        border: 1px solid #ccc;
+        border-width: 1px 4px 4px 1px;
+        border-radius: 5px;
+        padding: 10px 25px;
+        text-decoration: none;
+    }
+    a:hover{
+        animation:jello-horizontal .9s linear both
+    }
+</style>

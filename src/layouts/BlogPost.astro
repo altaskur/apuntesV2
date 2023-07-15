@@ -1,0 +1,90 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+type Props = CollectionEntry<'apuntes'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage, categories, tags } = Astro.props;
+---
+
+<html lang="es">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article>
+				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
+				<h1 class="title">{title}</h1>
+				<FormattedDate date={pubDate} />
+				{
+					updatedDate && (
+						<section class="last-updated-on">
+							Última actualización: <FormattedDate date={updatedDate} />
+						</section>
+					)
+				}
+				<hr />
+				{
+					categories && (
+						<section class="categories">
+							<nav>
+								Categorias:
+								{categories.map((category) => (
+									<a><b>{category}</b></a>
+									//<a href={`/apuntes/categoria/${category}`}>{category}</a>
+								))}
+							</nav>
+						</section>
+					)
+				}
+				{
+					tags && (
+						<section class="tags">
+							<nav>
+								Etiquetas:
+								{tags.map((tag) => (
+									<i>{tag}</i>
+								))}
+							</nav>
+						</section>
+					)
+				}
+				<slot />
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+<style>
+	.title {
+		font-size: 2em;
+		margin: 0.25em 0 0;
+	}
+
+	hr {
+		border-top: 1px solid #ddd;
+		margin: 1rem 0;
+	}
+
+	.last-updated-on {
+		font-style: italic;
+	}
+	img {
+		display: block;
+		margin: 0 auto;
+		width: 700px;
+		height: 400px;
+		object-fit: cover;
+	}
+	nav{
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+</style>

@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+const randomNumber = Math.floor(Math.random() * 4);
+const placeHolder = "/placeholder-about-" + randomNumber + ".jpg";
+---
+
+<Layout
+	title="Sobre mí"
+	description=""
+	tags={[]}
+	categories={[]}
+	pubDate={new Date('July 07 2023')}
+	updatedDate={new Date('July 07 2023')}
+	heroImage="/assets/img/test.jpg"
+>
+
+<p>
+	Soy <b>Altaskur</b>, un entusiasta de la programación y el desarrollo web. Desde 2022, he estado compartiendo mi pasión por la programación a través de mis directos en Twitch y creando contenido educativo en diferentes plataformas.
+</p>
+<p>
+	Como estudiante de D.A.W (Desarrollo de Aplicaciones Web), me encanta explorar nuevas tecnologías y aprender continuamente. A través de mis transmisiones en Twitch, complemento mi formación y satisfago mi curiosidad al desarrollar pequeños proyectos en vivo. Me apasiona tanto el desarrollo web como el de aplicaciones de escritorio, y me esfuerzo por crear proyectos con un diseño minimalista, claro y accesible.
+</p>
+<p>
+	Además de compartir mis conocimientos en programación, también tomo apuntes de todo lo que aprendo durante mis directos. Estos apuntes están disponibles aquí y alojados en Github, con el objetivo de que sean accesibles para todos y puedan servir como recurso educativo.
+</p>
+<p>
+	Fuera de la programación, disfruto de la colaboración con otros creadores de contenido y profesionales de la industria. A lo largo de mi trayectoria, he recibido el apoyo de una comunidad activa y comprometida. Estoy súper agradecido por cada interacción y por el constante apoyo que he recibido en mi camino.
+</p>
+
+<p>
+	¡Espero poder inspirarte y ayudarte en tu propio viaje de desarrollo!
+</p>
+
+<p>
+	¡Bienvenido/a y disfruta explorando el mundo de la programación conmigo!
+</p>
+</Layout>
