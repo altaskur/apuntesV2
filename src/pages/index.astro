@@ -31,7 +31,7 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
             latestPosts.map((post) => (
               <li>
                 <FormattedDate date={post.data.pubDate} />
-                <a href={`/apuntes/${post.slug}/`}>{post.data.title}</a>
+                <a href={`/apuntesV2V2/${post.slug}/`}>{post.data.title}</a>
               </li>
             ))
           }
@@ -48,7 +48,7 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
                 .map((post) => (
                   <li>
                     <FormattedDate date={post.data.pubDate} />
-                    <a href={`/apuntes/${post.slug}/`}>{post.data.title}</a>
+                    <a href={`/apuntesV2V2/${post.slug}/`}>{post.data.title}</a>
                   </li>
                 ))}
             </ul>
