@@ -44,7 +44,7 @@ Por lo tanto te dejo el script para generar el proyecto fácilmente
 npm install morgan dotenv nodemon bcrypt cors jsonwebtoken cors eslint
 ```
 
-## Estructura de fichero
+## Estructura del proyecto
 
 - bd
 - src
@@ -57,3 +57,62 @@ npm install morgan dotenv nodemon bcrypt cors jsonwebtoken cors eslint
   - main
 - .env
 
+## Aplicación simple en express.js
+
+```js
+
+// /app -> app.js
+
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// !ATENCIÓN!
+// esto sólo lo recomiendo para desarrollo
+// en producción sustituir por la ruta de despliegue
+
+const corsOptions = {
+  origin: '*', // tu dirección.com o 64.255.225.2
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
+const loggingRouter = require('../routers/iniciarSession');
+const profile = require('../routers/profile');
+
+app.use('/api/logging', loggingRouter);
+app.use('/api/profile', profile);
+
+
+module.exports = app;
+```
+
+```js
+// /main.js
+const app = require('./app/app');
+
+require('dotenv').config();
+
+const { env } = process;
+
+app.listen(env.APP_PORT, () => {
+  console.log(`Web server listening on port ${env.APP_PORT}`);
+});
+```
+
+```env
+// .env
+APP_PORT=8084
+JWT_SECRET= // aquí rellenar con la clave de encriptación que deses
+
+// En el caso de tener BD incluye los datos
+DB_USER
+DB_HOST
+DB_DATABASE
+DB_PASSWORD
+DB_PORT
+```
