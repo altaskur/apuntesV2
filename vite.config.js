@@ -3,5 +3,5 @@ export default {
       crossorigin: false,
       comments: false,
     },
-
+    base: './',
   };
