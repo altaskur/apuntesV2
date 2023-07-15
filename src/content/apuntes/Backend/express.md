@@ -21,11 +21,10 @@ Index
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Aplicación simple en express.js](#aplicación-simple-en-expressjs)
 - [Ejemplos de rutas](#ejemplos-de-rutas)
-  - [Parametros](#parametros)
+  - [Parámetros](#parámetros)
   - [Query](#query)
   - [Body](#body)
 - [Referencias](#referencias)
-
 
 ## Librerías
 
@@ -175,7 +174,7 @@ module.exports = {
 
 ```
 
-Preparamos la contraseña y lo pasamos como middleware
+Preparamos la contraseña y lo pasamos cómo middleware
 
 ```js
 // /auth -> auth.js
@@ -289,7 +288,7 @@ Con esto ya tenemos una aplicación básica de express.js
 
 ## Ejemplos de rutas
 
-### Parametros
+### Parámetros
 
 ```js
 // /routers -> profile.js
