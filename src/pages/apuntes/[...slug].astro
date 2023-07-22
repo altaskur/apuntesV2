@@ -13,6 +13,8 @@ type Props = CollectionEntry<'apuntes'>;
 
 const post = Astro.props;
 const { Content } = await post.render();
+
+
 ---
 
 <BlogPost {...post.data}>
