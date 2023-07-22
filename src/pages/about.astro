@@ -1,19 +1,22 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
 const randomNumber = Math.floor(Math.random() * 4);
 const placeHolder = "/placeholder-about-" + randomNumber + ".jpg";
 ---
-
-<Layout
-	title="Sobre mí"
-	description=""
-	tags={[]}
-	categories={[]}
-	pubDate={new Date('July 07 2023')}
-	updatedDate={new Date('July 07 2023')}
-	heroImage="/apuntesV2/assets/img/test.jpg"
->
-
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+<figure>
+	<img src={placeHolder} alt="imagen">
+</figure>
 <p>
 	Soy <b>Altaskur</b>, un entusiasta de la programación y el desarrollo web. Desde 2022, he estado compartiendo mi pasión por la programación a través de mis directos en Twitch y creando contenido educativo en diferentes plataformas.
 </p>
@@ -34,4 +37,4 @@ const placeHolder = "/placeholder-about-" + randomNumber + ".jpg";
 <p>
 	¡Bienvenido/a y disfruta explorando el mundo de la programación conmigo!
 </p>
-</Layout>
+<Footer />
