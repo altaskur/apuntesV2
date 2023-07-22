@@ -3,6 +3,11 @@ title: 'Backend'
 description: ''
 pubDate: 'July 16 2023'
 updatedDate: 'July 16 2023'
+tags:
+  - JavaScript
+  - Web Development
+categories:
+    - Backend
 ---
 
 Express es un framework de node-js que nos permite levantar un servidor web.
