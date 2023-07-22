@@ -41,7 +41,7 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
       {
         categories.map((category) => (
           <section>
-            <a href={`/apuntesV2/apuntes/${category}/`}>{category}</a>
+            <a href={`/apuntesV2/apuntes/${category.toLocaleLowerCase()}/`}>{category}</a>
             <ul>
               {posts
                 .filter((post) => post.data.categories.includes(category))
