@@ -1,12 +1,12 @@
 ---
-title: 'Backend'
+title: 'herramientas'
 description: ''
-pubDate: 'July 16 2023'
-updatedDate: 'July 16 2023'
+pubDate: 'July 27 2023'
+updatedDate: 'July 27 2023'
 tags:
-  - JavaScript
-  - Web Development
+  - Git
+  - Development
 categories:
-    - Backend
+    - Herramientas
 ---
 
