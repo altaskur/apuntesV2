@@ -20,7 +20,6 @@ Gracias a esto podemos automatizar los proyectos y trabajar en equipo de una for
 Los commits se estructuran de la siguiente forma:
 
 ```bash
-
 <tipo>[alcance opcional]: <descripción>
 
 [texto opcional]
@@ -49,9 +48,7 @@ Los tipos permitidos son:
 debe de ser un sustantivo, encerrado entre paréntesis. Por ejemplo: fix(parser):.
 
 ```bash
-
-fix(parser): Corregir un bug en el parser
-
+fix(Parser): Corregir un bug en el parser
 ```
 
 ## Descripción
