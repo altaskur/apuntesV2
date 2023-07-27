@@ -1,5 +1,5 @@
 ---
-title: 'conventional commits'
+title: 'Conventional commits'
 description: ''
 pubDate: 'July 27 2023'
 updatedDate: 'July 27 2023'
@@ -9,9 +9,6 @@ tags:
 categories:
     - Herramientas
 ---
-
-# Conventional Commits
-
 ## ¿Qué son y para que se utiliza?
 
 Conventional Commits es una convención para establecer una forma de escritura común para nuestros commits.
