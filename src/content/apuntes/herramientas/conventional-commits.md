@@ -9,6 +9,21 @@ tags:
 categories:
     - Herramientas
 ---
+---
+
+- [¿Qué son y para que se utiliza?](#qué-son-y-para-que-se-utiliza)
+- [¿Cómo se utiliza?](#cómo-se-utiliza)
+  - [Tipos](#tipos)
+- [Alcance](#alcance)
+- [Descripción](#descripción)
+- [Body](#body)
+- [!break change](#break-change)
+- [Footer](#footer)
+- [Extensiones para Vscode](#extensiones-para-vscode)
+  - [Agradecimientos](#agradecimientos)
+
+---
+
 ## ¿Qué son y para que se utiliza?
 
 Conventional Commits es una convención para establecer una forma de escritura común para nuestros commits.
@@ -95,3 +110,11 @@ El footer debe de contener información adicional sobre el commit, por ejemplo:
 
     BREAKING CHANGE: drop support for Node 6
 ```
+
+## Extensiones para Vscode
+
+- [Conventional Commits](https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits)
+
+### Agradecimientos
+
+- [vamoacodear](https://github.com/nsdonato)

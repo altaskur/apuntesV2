@@ -9,6 +9,17 @@ tags:
 categories:
     - Herramientas
 ---
+
+---
+
+- [¿Cómo renombrar los commits?](#cómo-renombrar-los-commits)
+- [¿Cómo se utiliza rebase?](#cómo-se-utiliza-rebase)
+  - [¿Cómo navegamos por los commits?](#cómo-navegamos-por-los-commits)
+  - [¿Cómo renombramos el commit?](#cómo-renombramos-el-commit)
+- [¿Cómo subimos los cambios al repositorio remoto?](#cómo-subimos-los-cambios-al-repositorio-remoto)
+
+---
+
 ## ¿Cómo renombrar los commits?
 
 Si queremos renombrar el último commit podemos utilizar el comando `git commit --amend`,
