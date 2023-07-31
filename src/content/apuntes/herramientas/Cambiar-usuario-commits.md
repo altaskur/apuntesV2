@@ -51,8 +51,8 @@ fi
 
 ## Referencias
 
-- [StackOverflow](https://stackoverflow.com/questions/750172/how-do-i-change-the-author-and-committer-name-email-for-multiple-commits){:target="_blank"}
+- [StackOverflow](https://stackoverflow.com/questions/750172/how-do-i-change-the-author-and-committer-name-email-for-multiple-commits)
 
 ## Agradecimientos
 
-- [xoxefdp](https://github.com/xoxefdp){:target="_blank"}
+- [xoxefdp](https://github.com/xoxefdp)
