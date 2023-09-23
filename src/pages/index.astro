@@ -6,16 +6,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 
-const posts = (await getCollection("apuntes")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
+const posts = (await getCollection("apuntes")).filter((post) => !post.data.principal).sort((a, b) => {
+  const aDate = a.data.updatedDate?.valueOf() || a.data.pubDate.valueOf();
+  const bDate = b.data.updatedDate?.valueOf() || b.data.pubDate.valueOf();
+  return bDate - aDate;
+});
 
-let latestPosts = posts.slice(0, 5);
-latestPosts = latestPosts.filter((post) => !post.data.principal);
-
-latestPosts = latestPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-const categories = [...new Set(posts.flatMap((post) => post.data.categories))];
+const latestPosts = posts.slice(0, 5);
+const categories = [...new Set(posts.flatMap((post) => { if(!post.data.principal) return post.data.categories}))];
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
 
@@ -44,14 +42,14 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
       {
         categories.map((category) => (
           <section>
-            <a href={`/apuntesV2/apuntes/${category.toLocaleLowerCase()}/`}>{category}</a>
+            {category && <a href={`/apuntesV2/apuntes/${category.toLocaleLowerCase()}/`}>{category}</a>}
             <ul>
               {posts
-                .filter((post) => post.data.categories.includes(category))
+                .filter((post) => post.data.categories.includes(category || ''))
                 .map((post) => (
                   <li>
                     <FormattedDate date={post.data.pubDate} />
-                    <a href={`/apuntesV2/apuntes/${post.slug}/`}>{post.data.title} </a>
+                    <a href={`/apuntesV2/apuntes/${category ? category.toLocaleLowerCase() : ''}/${post.slug}/`}>{post.data.title} </a>
                   </li>
                 ))}
             </ul>
