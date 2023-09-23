@@ -17,6 +17,7 @@ const apuntes = defineCollection({
 			.optional()
 			.transform((str) => (str ? new Date(str) : undefined)),
 		heroImage: z.string().optional(),
+		principal: z.boolean().optional(),
 	}),
 });
 

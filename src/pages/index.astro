@@ -10,7 +10,8 @@ const posts = (await getCollection("apuntes")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 
-const latestPosts = posts.slice(0, 5);
+let latestPosts = posts.slice(0, 5);
+latestPosts = latestPosts.filter((post) => !post.data.principal);
 
 const categories = [...new Set(posts.flatMap((post) => post.data.categories))];
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
