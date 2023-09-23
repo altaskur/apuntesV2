@@ -11,3 +11,141 @@ categories:
 principal: false
 ---
 
+
+- [¿Qué es React?](#qué-es-react)
+- [Roadmap](#roadmap)
+- [Inicializar un proyecto](#inicializar-un-proyecto)
+- [JSX](#jsx)
+  - [Diferencias con HTML](#diferencias-con-html)
+- [Componentes](#componentes)
+  - [Componente vs Elemento](#componente-vs-elemento)
+  - [Props](#props)
+    - [Modificar props](#modificar-props)
+
+## ¿Qué es React?
+
+React es una de las librerías más populares de JavaScript para construir interfaces de usuario, es de código abierto y fue desarrollada por Facebook.
+
+## Roadmap
+
+Estos apuntes pretenden ser una guía de consulta rápida de conceptos muy concretos de React, por lo que no se profundizará en cada uno de ellos.
+
+## Inicializar un proyecto
+
+Para inicializar un proyecto debemos usar vite, que nos permite crear un proyecto pre-configurado, junto a Eslint.
+
+```bash
+npm init vite@latest
+```
+
+Recomiendo el uso de JavaScript + SWC. SWC es un trasnpilador de JavaScript que nos permite usar las últimas características de JavaScript en navegadores antiguo, más rápido que su predeterminado Babel.
+
+## JSX
+
+JSX es una sintaxis que nos permite escribir código HTML dentro de JavaScript, y es una de las características más importantes de React.
+
+### Diferencias con HTML
+
+- Los atributos de las etiquetas HTML se escriben en camelCase, en lugar de kebab-case.
+- Los atributos booleanos se escriben sin valor, por ejemplo `disabled` o `true` en lugar de `disabled="true"`.
+- Las etiquetas deben cerrarse, por ejemplo `<img />` en lugar de `<img>`.
+- class se escribe cómo className, ya que class es una palabra reservada en JavaScript.
+
+## Componentes
+
+Los componentes de React deben de estar escritos en PascalCase, esto es así para evitar colisiones con las etiquetas HTML, ya que estas están escritas en kebab-case, y nunca sabremos si en un futuro se añadirá una etiqueta HTML con el mismo nombre que nuestro componente.
+
+```jsx
+function PrimerComponente({nombre}) {
+    return (
+        <section>
+            <h1>Componente {nombre}</h1>
+            <p>Este es un componente</p>
+        </section>
+    )
+}
+
+export default PrimerComponente
+```
+
+Ahora para llamar al componente debemos importarlo y usarlo cómo si fuera una etiqueta HTML.
+
+```jsx
+import PrimerComponente from './PrimerComponente'
+
+function App() {
+    return (
+        <main>
+            <PrimerComponente nombre="Primer componente" />
+        </main>
+    );
+};
+```
+
+ahora bien, si queremos volver a usar el componente debemos usar React.Fragment o su forma abreviada <></>, ya que un componente solo puede devolver un elemento.
+
+```jsx
+import PrimerComponente from './PrimerComponente'
+
+function App() {
+    return (
+        <>
+            <PrimerComponente nombre="Primer componente" />
+            <PrimerComponente nombre="Segundo componente" />
+        </>
+    );
+};
+```
+
+### Componente vs Elemento
+
+Un componente es una función que devuelve un elemento, y un elemento es una etiqueta HTML.
+
+```jsx
+function Componente() {
+    return (
+        <h1>Elemento</h1>
+    )
+}
+
+export default Componente
+```
+
+### Props
+
+Las props son los atributos que le pasamos a un componente, y se pueden acceder a ellas desde el componente como un objeto.
+
+```jsx
+function Componente({nombre}) {
+    return (
+        <h1>{nombre}</h1>
+    )
+}
+```
+
+#### Modificar props
+
+Las props no deberían modificarse, ya que las props deben ser inmutables, de ese modo perdemos la seguridad  de estar recibiendo el mismo tipo de dato en el componente.
+Para solucionarlo podemos envolver el componente en un elemento, y modificar las props de ese elemento.
+
+también podemos usar children, que es una prop que nos permite pasar elementos dentro de un componente, en otros frameworks se conoce cómo slot.
+
+```jsx
+
+function Componente({nombre, children}) {
+    return (
+        <div>
+            <h1>{nombre}</h1>
+            {children}
+        </div>
+    )
+}
+
+function App() {
+    return (
+        <Componente nombre="Componente">
+            <p>Esto es un children</p>
+        </Componente>
+    )
+}
+```
