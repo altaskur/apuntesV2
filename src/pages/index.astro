@@ -13,6 +13,8 @@ const posts = (await getCollection("apuntes")).sort(
 let latestPosts = posts.slice(0, 5);
 latestPosts = latestPosts.filter((post) => !post.data.principal);
 
+latestPosts = latestPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
 const categories = [...new Set(posts.flatMap((post) => post.data.categories))];
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
@@ -26,7 +28,7 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
     <Header />
     <main>
       <section>
-        Ultimos posts
+        Últimos posts
         <ul>
           {
             latestPosts.map((post) => (
