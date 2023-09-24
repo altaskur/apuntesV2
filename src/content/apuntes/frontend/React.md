@@ -25,6 +25,7 @@ principal: false
 - [Hooks](#hooks)
   - [Estado inicial](#estado-inicial)
   - [Propagación de eventos](#propagación-de-eventos)
+- [Recorrer listas](#recorrer-listas)
 
 ## ¿Qué es React?
 
@@ -132,7 +133,7 @@ export default Componente
 
 ## Props
 
-Las props son los atributos que le pasamos a un componente, y se pueden acceder a ellas desde el componente como un objeto.
+Las props son los atributos que le pasamos a un componente, y se pueden acceder a ellas desde el componente cómo un objeto.
 
 ```jsx
 function Componente({nombre}) {
@@ -219,3 +220,27 @@ export default Componente;
 Cuando usamos un evento en un componente, este evento se propaga a todos los elementos hijos, de esta forma podemos mandar información actualizada a los componentes hijos.
 
 Eso quiere decir, que si renderiza un componente padre, todos los componentes hijos se renderizarán también, aunque la información que reciban no haya cambiado.
+
+## Recorrer listas
+
+Para recorrer listas debemos indicar un atributo key, que debe ser único, ya que React usa este atributo para identificar los elementos, y así poder actualizarlos, si colocamos la misma key en dos elementos, React seguramente replicará el estado del primer elemento en el segundo.
+
+```jsx
+function Discientes() {
+    const discientes = [
+        {id: 1, nombre: 'Juan'},
+        {id: 2, nombre: 'Pedro'},
+        {id: 3, nombre: 'María'},
+        {id: 4, nombre: 'Ana'},
+    ];
+    return (
+        <ul>
+            {discientes.map((disciente) => {
+                return <li key={disciente.id}>{disciente.nombre}</li>
+            })}
+        </ul>
+    )
+}
+
+export default Discientes;
+```
