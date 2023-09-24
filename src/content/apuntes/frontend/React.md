@@ -16,6 +16,7 @@ principal: false
 - [Roadmap](#roadmap)
 - [Inicializar un proyecto](#inicializar-un-proyecto)
 - [JSX](#jsx)
+  - [Comentarios en JSX](#comentarios-en-jsx)
   - [Diferencias con HTML](#diferencias-con-html)
 - [Componentes](#componentes)
   - [Componente vs Elemento](#componente-vs-elemento)
@@ -45,6 +46,21 @@ Recomiendo el uso de JavaScript + SWC. SWC es un trasnpilador de JavaScript que 
 ## JSX
 
 JSX es una sintaxis que nos permite escribir código HTML dentro de JavaScript, y es una de las características más importantes de React.
+
+### Comentarios en JSX
+
+Los comentarios en JSX se escriben entre llaves, y deben de estar dentro de un elemento.
+
+```jsx
+function App() {
+    return (
+        <main>
+            {/* Comentario */}
+            <h1>Comentarios</h1>
+        </main>
+    );
+};
+```
 
 ### Diferencias con HTML
 

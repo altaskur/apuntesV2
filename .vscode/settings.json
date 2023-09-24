@@ -6,5 +6,8 @@
         "renderizarán",
         "trasnpilador"
     ],
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "conventionalCommits.scopes": [
+        "React"
+    ]
 }
