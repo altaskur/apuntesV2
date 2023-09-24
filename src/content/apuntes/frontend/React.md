@@ -23,6 +23,7 @@ principal: false
 - [Props](#props)
   - [Modificar props](#modificar-props)
 - [Hooks](#hooks)
+  - [Estado inicial](#estado-inicial)
   - [Propagación de eventos](#propagación-de-eventos)
 
 ## ¿Qué es React?
@@ -180,6 +181,26 @@ import {useState} from 'react'
 
 function Componente() {
     const [estado, setEstado] = useState(false);
+    const handleClick = () => {
+        setEstado(!estado);
+    }
+    return (
+        <button onClick={ handleClick }>
+            {estado ? 'Activo' : 'Inactivo'}
+        </button>
+    )
+}
+
+export default Componente;
+```
+
+### Estado inicial
+
+Podemos definir una prop cómo estado inicial, de esta forma el componente se renderizará con el estado inicial. Como buena práctica se declara con la palabra `initial`"nombreProp". ya que el estado inicial solo se ejecuta la primera vez que se renderiza el componente. Por lo tanto si cambia el estado en el componente padre, el componente hijo no se actualizará.
+
+```jsx
+function Componente({estadoInicial}) {
+    const [estado, setEstado] = useState(estadoInicial);
     const handleClick = () => {
         setEstado(!estado);
     }
