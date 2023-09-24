@@ -21,6 +21,7 @@ principal: false
   - [Componente vs Elemento](#componente-vs-elemento)
   - [Props](#props)
     - [Modificar props](#modificar-props)
+  - [Hooks](#hooks)
 
 ## ¿Qué es React?
 
@@ -148,4 +149,29 @@ function App() {
         </Componente>
     )
 }
+```
+
+### Hooks
+
+Nos permite hacer que los componentes, reaccionen a ciertos eventos, o que se actualicen cuando cambie el estado de la aplicación.
+
+Para usar un hook debemos importar userState de React, este user state nos devuelve un array con dos elementos, el primero es el estado, y el segundo es una función que nos permite modificar el estado.
+
+```jsx
+
+import {useState} from 'react'
+
+function Componente() {
+    const [estado, setEstado] = useState(false);
+    const handleClick = () => {
+        setEstado(!estado);
+    }
+    return (
+        <button onClick={ handleClick }>
+            {estado ? 'Activo' : 'Inactivo'}
+        </button>
+    )
+}
+
+export default Componente;
 ```
