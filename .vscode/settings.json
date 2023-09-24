@@ -9,6 +9,7 @@
     ],
     "liveServer.settings.port": 5501,
     "conventionalCommits.scopes": [
-        "React"
+        "React",
+        "Blog"
     ]
 }
