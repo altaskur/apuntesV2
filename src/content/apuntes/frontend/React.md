@@ -19,9 +19,10 @@ principal: false
   - [Diferencias con HTML](#diferencias-con-html)
 - [Componentes](#componentes)
   - [Componente vs Elemento](#componente-vs-elemento)
-  - [Props](#props)
-    - [Modificar props](#modificar-props)
-  - [Hooks](#hooks)
+- [Props](#props)
+  - [Modificar props](#modificar-props)
+- [Hooks](#hooks)
+  - [Propagación de eventos](#propagación-de-eventos)
 
 ## ¿Qué es React?
 
@@ -112,7 +113,7 @@ function Componente() {
 export default Componente
 ```
 
-### Props
+## Props
 
 Las props son los atributos que le pasamos a un componente, y se pueden acceder a ellas desde el componente como un objeto.
 
@@ -124,7 +125,7 @@ function Componente({nombre}) {
 }
 ```
 
-#### Modificar props
+### Modificar props
 
 Las props no deberían modificarse, ya que las props deben ser inmutables, de ese modo perdemos la seguridad  de estar recibiendo el mismo tipo de dato en el componente.
 Para solucionarlo podemos envolver el componente en un elemento, y modificar las props de ese elemento.
@@ -151,7 +152,7 @@ function App() {
 }
 ```
 
-### Hooks
+## Hooks
 
 Nos permite hacer que los componentes, reaccionen a ciertos eventos, o que se actualicen cuando cambie el estado de la aplicación.
 
@@ -175,3 +176,9 @@ function Componente() {
 
 export default Componente;
 ```
+
+### Propagación de eventos
+
+Cuando usamos un evento en un componente, este evento se propaga a todos los elementos hijos, de esta forma podemos mandar información actualizada a los componentes hijos.
+
+Eso quiere decir, que si renderiza un componente padre, todos los componentes hijos se renderizarán también, aunque la información que reciban no haya cambiado.
