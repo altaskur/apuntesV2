@@ -9,7 +9,6 @@ tags:
 categories:
     - Herramientas
 ---
----
 
 - [¿Qué son y para que se utiliza?](#qué-son-y-para-que-se-utiliza)
 - [¿Cómo se utiliza?](#cómo-se-utiliza)
