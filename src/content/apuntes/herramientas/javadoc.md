@@ -1,8 +1,8 @@
 ---
 title: 'JavaDoc - Documentación de código'
 description: ''
-pubDate: 'August 10 2023'
-updatedDate: 'August 10 2023'
+pubDate: 'October 10 2023'
+updatedDate: 'October 10 2023'
 tags:
   - Java
   - Development
