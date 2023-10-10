@@ -13,8 +13,7 @@ categories:
 ## ¿Qué es JavaDoc?
 
 JavaDoc es una herramienta que nos permite generar documentación de nuestro código Java.
-En resultado es un conjunto de páginas HTML que contienen la documentación de las clases y métodos de nuestro código, similar a la documentación de la API de Java.
-Se genera a partir de comentarios que se escriben en el código fuente.
+En resultado es un conjunto de páginas HTML que contienen la documentación de las clases y métodos de nuestro código, similar a la documentación de la API de Java, se genera a partir de comentarios que se escriben en el código fuente.
 
 ## Beneficios
 
@@ -26,11 +25,11 @@ JavaDoc nos permite generar documentación de nuestro código de forma automáti
 Para que JavaDoc pueda generar la documentación de nuestro código, debemos seguir las siguientes convenciones:
 
 Los comentarios deberían estar escritos en inglés. ya que es el idioma más utilizado en el desarrollo de software y sea entendible por la mayoría de las personas.
+
 Es importante que los comentarios estén escritos en la línea anterior al elemento que documentan, ya que si están escritos en la misma línea, el elemento no se documentará.
+
 Los comentarios de documentación deben comenzar con `/**` y terminar con `*/`, dentro de estos debería haber una descripción del elemento que documentan, y etiquetas que describan el elemento,
 cómo `@param` para los parámetros, `@return` para el valor de retorno, `@throws` para las excepciones, también debería haber una etiqueta `@version` que indique la versión del elemento que documentan y una etiqueta `@author`.
-
-Para escribir
 
 ## ¿Cómo se utiliza?
 
