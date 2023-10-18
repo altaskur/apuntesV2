@@ -21,7 +21,8 @@ principal: false
 - [Componentes](#componentes)
   - [Componente vs Elemento](#componente-vs-elemento)
 - [Props](#props)
-  - [Modificar props](#modificar-props)
+  - [Trabajando con props](#trabajando-con-props)
+- [Estados](#estados)
 - [Hooks](#hooks)
   - [Estado inicial](#estado-inicial)
   - [Propagación de eventos](#propagación-de-eventos)
@@ -143,7 +144,7 @@ function Componente({nombre}) {
 }
 ```
 
-### Modificar props
+### Trabajando con props
 
 Las props no deberían modificarse, ya que las props deben ser inmutables, de ese modo perdemos la seguridad  de estar recibiendo el mismo tipo de dato en el componente.
 Para solucionarlo podemos envolver el componente en un elemento, y modificar las props de ese elemento.
@@ -169,6 +170,10 @@ function App() {
     )
 }
 ```
+
+## Estados
+
+Es un valor que cada vez que cambie, hará que el componente vuelva a pintarse en el DOM, actualizando la información.
 
 ## Hooks
 

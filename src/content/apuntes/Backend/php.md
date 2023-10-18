@@ -13,7 +13,7 @@ categories:
 - [POO](#poo)
 - [Atributos de clase](#atributos-de-clase)
 - [Constructor](#constructor)
-- [llamar a un atributo](#llamar-a-un-atributo)
+- [Llamar a un atributo](#llamar-a-un-atributo)
 
 ## POO
 
@@ -43,7 +43,7 @@ Para inicializar el constructor usaremos la palabra reservada `__construct()` y 
 
 Podemos declarar y asignar un valor dentro de los paréntesis del constructor, asignándole un valor predeterminado.
 
-## llamar a un atributo
+## Llamar a un atributo
 
 Para llamar a un atributo podemos hacer uso de la palabra reservada `$this` y luego el nombre del atributo.
 
