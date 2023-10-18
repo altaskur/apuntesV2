@@ -27,6 +27,7 @@ principal: false
   - [Propagación de eventos](#propagación-de-eventos)
 - [Recorrer listas](#recorrer-listas)
 - [UseEffect](#useeffect)
+  - [then vs async/await](#then-vs-asyncawait)
 - [Custom Hooks](#custom-hooks)
 
 ## ¿Qué es React?
@@ -176,6 +177,8 @@ function App() {
 
 Es un valor que cada vez que cambie, hará que el componente vuelva a pintarse en el DOM, actualizando la información.
 
+`En el estado solo debemos guardar la mínima información necesaria para que el componente cumpla su función.`
+
 ## Hooks
 
 Nos permite hacer que los componentes, reaccionen a ciertos eventos, o que se actualicen cuando cambie el estado de la aplicación.
@@ -253,8 +256,7 @@ export default Discientes;
 
 ## UseEffect
 
-Nos permite ejecutar código, al renderizar el componente, utilizado para manejar datos
-fuera de React, cómo peticiones a una API.
+Nos permite ejecutar código, al renderizar el componente, utilizado para manejar datos fuera de React, cómo peticiones a una API.
 
 Nos permite ejecutar el código de tres maneras distintas:
 
@@ -282,5 +284,42 @@ useEffect(() => {
     // código
 }, [])
 ```
+
+### then vs async/await
+
+Aunque then es más antiguo y su lectura es más complicada, a la hora de interactuar con useEffect, es más rápido que async/await.
+
+Async/await genera una promesa y useEffect debe ser síncrono, por lo que debemos envolver en código en una función autoejecutable.
+
+```jsx
+useEffect(() => {
+    (async () => {
+        try(){
+            const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
+            if (!response.ok) throw Error('Error');
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    })()
+}, [])
+```
+
+ahora bien si usamos .then el código queda más reducido:
+
+```jsx
+useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users/1')
+        .then(response => {
+            if(!response.ok) throw Error('Error');
+            response.json()
+        })
+        .then(data => console.log(data))
+        .catch(error => console.log(error))
+}, [])
+```
+
+En React suele ser más común usar .then, o directamente Axios.
 
 ## Custom Hooks
