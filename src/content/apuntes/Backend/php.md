@@ -9,6 +9,12 @@ tags:
 categories:
     - Backend
 ---
+
+- [POO](#poo)
+- [Atributos de clase](#atributos-de-clase)
+- [Constructor](#constructor)
+- [llamar a un atributo](#llamar-a-un-atributo)
+
 ## POO
 
 Para crear una clase de PHP cómo en Java necesitamos usar class más el nombre de clase y las llaves.
