@@ -11,7 +11,6 @@ categories:
 principal: false
 ---
 
-
 - [¿Qué es React?](#qué-es-react)
 - [Roadmap](#roadmap)
 - [Inicializar un proyecto](#inicializar-un-proyecto)
@@ -27,6 +26,8 @@ principal: false
   - [Estado inicial](#estado-inicial)
   - [Propagación de eventos](#propagación-de-eventos)
 - [Recorrer listas](#recorrer-listas)
+- [UseEffect](#useeffect)
+- [Custom Hooks](#custom-hooks)
 
 ## ¿Qué es React?
 
@@ -249,3 +250,37 @@ function Discientes() {
 
 export default Discientes;
 ```
+
+## UseEffect
+
+Nos permite ejecutar código, al renderizar el componente, utilizado para manejar datos
+fuera de React, cómo peticiones a una API.
+
+Nos permite ejecutar el código de tres maneras distintas:
+
+Se ejecuta con cada renderizado.
+
+```jsx
+useEffect(() => {
+    // código
+})
+```
+
+Al modificar el estado y las props.
+
+```jsx
+useEffect(() => {
+    // código
+}, [estado, props])
+```
+
+Solo se ejecuta una vez, al renderizar el componente por primera vez, suele ser la más común,
+para manejar API's.
+
+```jsx
+useEffect(() => {
+    // código
+}, [])
+```
+
+## Custom Hooks
